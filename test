@@ -1,1 +1,42 @@
 test
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+const {
+register int = iota + 1
+update
+delete
+}
+
+
+type InhouseGroup struct {
+  changeType string
+  sortNo string
+  name string
+  undateDatetime string
+}
+
+func (i InhouseGroup)String(){
+fmt.Printf(i.name)
+}
+
+
+func main() {
+	s := `{"changeType":"1","sortNo":"0","name":"Testtest","undateDatetime":"20200630103059999"}`
+
+	var i InhouseGroup
+	
+	if err := json.Unmarshal([]byte(s), &i); err != nil {
+		fmt.Printf("noUnmarshal")
+		return
+	}
+
+	fmt.Printf("%#v\n", i.undateDatetime)
+	fmt.Println(i.undateDatetime, i.name)
+
+}
