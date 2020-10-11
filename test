@@ -13,7 +13,7 @@ update
 delete
 }
 
-
+// InhouseGroup 社内情報
 type InhouseGroup struct {
   changeType string
   sortNo string
